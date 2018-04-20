@@ -1,10 +1,13 @@
 # -*- coding:utf-8 -*-
-from flask import Flask
+from flask import render_template
 from . import main
-
-app = Flask(__name__)
 
 
 @main.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return render_template('index.html')
+
+
+@main.route('/<category>')
+def category(category):
+    return render_template('category.html', category=category)
