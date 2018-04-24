@@ -51,12 +51,12 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
                 <ul class="nav navbar-nav">
-                    <li><a href="/world">WORLD</a></li>
-                    <li><a href="/business">BUSINESS</a></li>
-                    <li><a href="/sport">SPORT</a></li>
-                    <li><a href="/technology">TECHNOLOGY</a></li>
-                    <li><a href="/culture">CULTURE</a></li>
-                    <li><a href="/health">HEALTH</a></li>
+                    <li><a href="/topic/World">WORLD</a></li>
+                    <li><a href="/topic/Business">BUSINESS</a></li>
+                    <li><a href="/topic/Sport">SPORT</a></li>
+                    <li><a href="/topic/Technology">TECHNOLOGY</a></li>
+                    <li><a href="/topic/Lifestyle">LIFESTYLE</a></li>
+                    <li><a href="/topic/Health">HEALTH</a></li>
                     <li><a href="/analysis">ANALYSIS</a></li>
                 </ul>
             </div>
@@ -96,5 +96,10 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
 {% endblock %}
 

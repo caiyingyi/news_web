@@ -20,8 +20,8 @@ class Post(mongo_db.Document):
     meta = {'collection': 'test_news'}
 
     @queryset_manager
-    def objects(self, cls, queryset):
-        return queryset.order_by(self._id.desc())
+    def objects(cls, queryset):
+        return queryset.order_by("-published_at")
 
     def __unicode__(self):
         return self.title

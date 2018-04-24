@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-</body>
-</html>
+{% block title %}文章{% endblock %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <article class="article the-font"
+                         style="box-shadow: rgb(167, 163, 163) 5px 5px 20px;background:#fffffc;">
+                    <h2>{{ post.title }}</h2>
+                    <p style="padding-left:20px;">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <a> {{ post.media }}</a> &nbsp
+                        <small>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            <span style="color:#8C8C8C;"> {{ post.published_at | transform_timestamp }}</span>
+                        </small>
+                        <a href="{{ url_for('main.topic',topic=post.topic) }}" style="float:right"><span
+                                class="label label-success"><i class="fa fa-paperclip"
+                                                               aria-hidden="true"></i> {{ post.topic }}</span></a>
+                    </p>
+
+                    <div class="post-author">
+
+                    </div>
+
+                    <div class="post-body">
+                        {% if post.content %}
+                            {{ post.content | safe }}
+                        {% else %}
+                            {{ post.content }}
+                        {% endif %}
+                    </div>
+                    <div style="border-top:1px solid #EBEBEB;padding:10px 5px;margin-top:20px;">
+                    <span style="float:right">
+                        <a href="/" class="btn btn-xs ">返回首页<span class=" glyphicon glyphicon-log-out"
+                                                                  aria-hidden="true"></span></a>
+                    </span>
+                    </div>
+
+                    <ul>
+                        {% for keyword in post.keywords %}
+                            <li class="presentation" style="padding-top:0px;">
+                                <a><p><span
+                                        style="font-size:15px;"><i class="fa fa-search"
+                                                                   aria-hidden="true"></i> {{ keyword|upper }}</span>
+                                </p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
