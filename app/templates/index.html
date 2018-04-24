@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_macros.html" as macros %}
 
 {% block page_bottom %}
     <div class="jumbotron" style="padding-bottom:100px;background:#426579;">
@@ -8,5 +9,23 @@
             <a href="/"><button class="btn btn-danger btn-wide the-font">HOT NEWS</button></a>
         </div>
     </div>
-{% endblock %} 
+{% endblock %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+            {% include '_posts.html' %}
+            </div>
+
+            {% if pagination %}
+            <div  class="col-md-12">
+                {{ macros.pagination_widget(pagination, '.index') }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
 

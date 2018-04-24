@@ -2,8 +2,12 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from config import config
+from flask_moment import Moment
+from flask_mongoengine import MongoEngine
 
 bootstrap = Bootstrap()
+moment = Moment()
+mongo_db = MongoEngine()
 
 
 def create_app(config_name):
@@ -12,6 +16,8 @@ def create_app(config_name):
     config[config_name].init_app(app)
 
     bootstrap.init_app(app)
+    moment.init_app(app)
+    mongo_db.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

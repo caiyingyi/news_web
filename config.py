@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
@@ -12,6 +9,11 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    MONGODB_SETTINGS = {
+        'db': 'testing',
+        'host': '39.108.180.114',
+        'port': 27017,
+    }
 
 
 class ProductionConfig(Config):

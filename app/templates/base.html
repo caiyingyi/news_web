@@ -66,15 +66,7 @@
 
 {% block content %}
     {% block page_bottom %}{% endblock %}
-    <div class="container">
-        {% for message in get_flashed_messages() %}
-            <div class="alert alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ message }}
-            </div>
-        {% endfor %}
 
-    </div>
     {% block page_content %}{% endblock %}
     <div style="background:#426579 none repeat scroll 0% 0%;color:#BFC9D3">
         <div class="container">
