@@ -17,7 +17,7 @@ class Post(mongo_db.Document):
     url = mongo_db.StringField()
     categories = mongo_db.IntField()
     origin_content = mongo_db.StringField(required=True)
-    meta = {'collection': 'test_news'}
+    meta = {'collection': 'news'}
 
     @queryset_manager
     def objects(cls, queryset):
