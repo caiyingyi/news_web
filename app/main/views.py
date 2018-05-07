@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from flask import render_template, request
+from flask import render_template, request, redirect
 from . import main
 from ..models import Post
 
@@ -23,7 +23,7 @@ def topic(topic):
 
 @main.route('/analysis', methods=['GET', 'POST'])
 def analysis():
-    return "waiting"
+    return redirect("https://datav.aliyun.com/share/d0a7559e0e5d8ab9d64a51182c01e804")
 
 
 @main.route('/<topic>/<id>', methods=['GET', 'POST'])
